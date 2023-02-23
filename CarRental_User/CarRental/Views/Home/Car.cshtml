@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CarRental.Models.car>
+
+@{
+    ViewBag.Title = "Car";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Car List</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassingYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Engine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatingCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassingYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Engine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeatingCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImagePath)
+        </td>
+       
+    </tr>
+}
+
+</table>

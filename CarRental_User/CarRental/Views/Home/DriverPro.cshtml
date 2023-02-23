@@ -1,0 +1,48 @@
+﻿@model CarRental.Models.driver
+
+@{
+    ViewBag.Title = "DriverPro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DriverPro</h2>
+
+<div>
+    <h4>driver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+           @Session["NameDr"]
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Session["EmailDr"]
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Session["AgeDr"]
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Session["PasswordDr"]
+        </dd>
+
+    </dl>
+</div>
+

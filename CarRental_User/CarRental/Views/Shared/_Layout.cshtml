@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("DFS Car Rental", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse navbar-brand2 navbar-right" style="margin-right:-150px;">
+                <ul class="nav navbar-nav">
+                    @if (Session["NameUs"] != null)
+                    {
+                        <li>@Html.ActionLink("Profile", "UserPro", "Home")</li>
+                        <li>@Html.ActionLink("Car", "Car", "Home")</li>
+                        <li>@Html.ActionLink("Rental", "Rent", "Home")</li>
+                        <li>@Html.ActionLink("Drivers", "Drivers", "Home")</li>
+                        <li>@Html.ActionLink("Booked", "Book", "Home")</li>
+                    }
+                    else if (Session["NameDr"] != null)
+                    {
+                        <li>@Html.ActionLink("Profile", "DriverPro", "Home")</li>
+                        <li>@Html.ActionLink("Car", "Car", "Home")</li>
+                        <li>@Html.ActionLink("Request", "Request", "Home")</li>
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Profile", "Profile", "Home")</li>
+                        <li>@Html.ActionLink("Car", "Car", "Home")</li>
+
+                    }
+
+
+
+                    @if (Session["NameUs"] != null)
+                    {
+                        <li style="margin-top:5px;margin-left:50px;">Hello @Session["NameUs"]</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+
+                    }
+                    else if (Session["NameDr"] != null)
+                    {
+                        <li style="margin-top:5px;margin-left:80px;">Hello @Session["NameDr"] </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                    }
+
+                    else
+                    {
+                        <li class="btn-group ">
+                            <button type="button" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown"> Log In </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Content("~/Home/UserLog")"> As User </a></li>
+                                <li><a href="@Url.Content("~/Home/DriverLog")"> As Driver</a></li>
+                            </ul>
+                        </li>
+                        <li class="btn-group ">
+                            <button type="button" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown"> Sign In </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Content("~/Home/User")"> As User </a></li>
+                                <li><a href="@Url.Content("~/Home/Driver")"> As Driver </a></li>
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - All Rights Reserved to DFS Car Rental</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<style>
+    .navbar-brand {
+        color: cornflowerblue;
+        float: left;
+        padding: 15px 15px;
+        margin-top: 10px;
+        font-size: 40px;
+        line-height: 20px;
+        font-family: 'Facebook Letter Faces';
+        margin-right: 100px;
+    }
+
+    .navbar-brand2 {
+        color: cornflowerblue;
+        padding: 15px 15px;
+        font-size: 30px;
+        font-family: 'Facebook Letter Faces'
+    }
+
+    .navbar {
+        background-color: midnightblue;
+    }
+
+    .navbar-fixed-top .btn {
+        background-color: midnightblue;
+        font-size: 30px;
+        color: cornflowerblue;
+        margin-top: -8px;
+    }
+
+    .navbar-brand:hover {
+        color: white;
+    }
+
+    .navbar-brand2:hover {
+        color: white;
+    }
+
+   .navbar-fixed-top .btn:hover {
+        color: white;
+    }
+</style>
+

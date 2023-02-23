@@ -1,0 +1,90 @@
+﻿@model IEnumerable<CarRental.Models.rental>
+
+@{
+    ViewBag.Title = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Booked Cars</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+            
+
+            <th>
+                @Html.DisplayNameFor(model => model.car.CarNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.car.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pickup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dropoff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_run)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.driver.Name)
+            </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @if (Session["IdUs"] != null)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.car.CarNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.car.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dropoff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_run)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.driver.Name)
+            </td>
+
+
+
+        <td>
+          
+            @Html.ActionLink("Delete", "Delete1", new { id = item.Id })
+        </td>
+        }
+    </tr>
+}
+
+</table>

@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<style>
+    body{
+        background-image:url(../images/home/car_rent10.png);
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    .wrapper {
+        box-sizing: border-box;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        background-color: white;
+        margin: 7rem 20% 1rem;
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+    }
+    img {
+        margin-top: 10%;
+        margin-bottom: 10%;
+        width: 300px;
+        height: 300px;
+    }
+    header{
+       text-align:center;
+    }
+    .next,.follow{
+        text-decoration:none;
+        font-size:20px;
+       padding:12px;
+        border:none;
+        border-radius:5px;
+        background-color:lightskyblue;
+        margin-bottom:20%;
+        
+    }
+
+</style>
+<section class="container">
+    <section class="wrapper">
+        <header>
+            <div class="profile-img-content">
+                <div class="profile-img">
+                    <img src="~/images/home/avatar.png" />
+                 </div>
+            </div>
+            <h1> Welcome to DFS Car Rental </h1>
+            <p>Signup Now!!</p>
+        </header>
+       
+        <footer>
+            <button class="next">@Html.ActionLink("As User", "User", "Home")</button>
+            <button class="follow">@Html.ActionLink("As Driver", "Driver", "Home")</button>
+        </footer>
+    </section>
+</section>
